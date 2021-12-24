@@ -4,6 +4,7 @@ package-lock.json
 
 # testing
 /coverage
+/thunder-tests
 
 # production
 /build
