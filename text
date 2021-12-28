@@ -1,0 +1,23 @@
+aws cognito-idp sign-up \
+--region us-east-1 \
+--client-id 96qc8b2knh46ijteiba1ph9gr \
+--username adibtatriantama@gmail.com \
+--password Adibt@12345
+
+aws cognito-idp admin-confirm-sign-up \
+--region us-east-1 \
+--user-pool-id us-east-1_greIeExm8 \
+--username adibtatriantama@gmail.com
+
+npx aws-api-gateway-cli-test \
+--username='adibtatriantama@gmail.com' \
+--password='Adibt@12345' \
+--user-pool-id='us-east-1_greIeExm8' \
+--app-client-id='96qc8b2knh46ijteiba1ph9gr' \
+--cognito-region='us-east-1' \
+--identity-pool-id='us-east-1:ae1a663b-8adf-4193-9851-7ab9a984775c' \
+--invoke-url='https://2z0l0xetc7.execute-api.us-east-1.amazonaws.com' \
+--api-gateway-region='us-east-1' \
+--path-template='/notes' \
+--method='POST' \
+--body='{"content":"hello world","attachment":"hello.jpg"}'
